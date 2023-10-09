@@ -1,0 +1,41 @@
+import 'package:dart_application_1/dart_application_1.dart' as dart_application_1;
+import 'dart:io';
+void main() {
+  final CardList = [
+    Card("Atraxa, Praetor's Voice", 4),
+    Card("The Ur-Dragon", 9),
+    Card("Black Lotus", 0),
+    Card("Umbris, Fear Manifest", 5),
+    Card("Lotus Petal", 0),
+    Card("Mana Crypt", 0),
+    Card("Soul Ring", 1),
+    Card("Myrel, Shield of Argive", 4),
+    Card("Ancestral Recall", 1)
+  ];
+
+  print("What card would you like to search for?");
+  String cardSearch = stdin.readLineSync();
+  findCard(CardList, cardSearch);
+}
+
+
+class Card {
+  final String name;
+  final int ConvertedMana;
+
+  const Card(this.name, this.ConvertedMana)
+
+  @override
+
+  String toString() {
+    return 'Card : {Name: ${name}, Converted Mana Cost: ${ConvertedMana}}'
+  }
+}
+void findCard(List<Cards> card, String cardName) {
+  final card = CardList.singleWhere((element) => element.name == cardName, orElse: () {
+    print('The card ${cardName} is not in our database.');
+    return null;
+  });
+
+  print('The card ${card} is in our database.');
+}
