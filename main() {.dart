@@ -1,4 +1,4 @@
-include "Deck
+include "DeckboxCards.MtgCardList.csv"
 main() {
    
 }
